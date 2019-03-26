@@ -16,7 +16,12 @@ const generateTable = require("./lib/tables");
  * @param {Array<number>} gradesArr (Example: [0.76, 0.45])
  * @return {Array<string>} (Example: ['76/100', '45/100'])
  */
-function gradeOutOfHundred(gradesArr) {}
+function gradeOutOfHundred(gradesArr) {
+  var gradesTimes100 = gradesArr.map((num) => num * 100);
+  var floorOfGrades = gradesTimes100.map(Math.floor);
+  var final = floorOfGrades.map((num) => num + "/100");
+  return final.join(" ");
+}
 
 /**
  * Write a function that sorts grades from highest to lowest
@@ -28,7 +33,15 @@ function gradeOutOfHundred(gradesArr) {}
  * @param {Array<Number>} gradesArr (Example: [0.76, 0.45])
  * @return {Array<string>} (Example: ['76/100', '45/100'])
  */
-function sortGrades(gradesArr) {}
+function sortGrades(gradesArr) {
+  var gradesTimes100 = gradesArr.map((num) => num * 100);
+  var floorOfGrades = gradesTimes100.map(Math.floor);
+  var final = floorOfGrades.map((num) => num + "/100");
+  return final
+    .sort()
+    .reverse()
+    .join(" ");
+}
 
 /**
  * Write a function that returns an array of grades that are
@@ -39,7 +52,9 @@ function sortGrades(gradesArr) {}
  * @param {Array<Number>} gradesArr (Example: [0.76, 0.45])
  * @return {Array<Number>} (Example: [0.76, 0.77])
  */
-function showPassingGrades(gradesArr) {}
+function showPassingGrades(gradesArr) {
+  return gradesArr.filter((num) => num > 0.5).join(" ");
+}
 
 /**
  * Write a function that returns the average grade.
@@ -50,7 +65,9 @@ function showPassingGrades(gradesArr) {}
  * @param {Array<Number>} gradesArr (Example: [0.76, 0.45])
  * @return {Number}
  */
-function calculateAverage(gradesArr) {}
+function calculateAverage(gradesArr) {
+  return (gradesArr.reduce((a, b) => a + b) / gradesArr.length).toFixed(3);
+}
 
 /**
  * Write a function that returns the average PASSING grade.
@@ -61,7 +78,10 @@ function calculateAverage(gradesArr) {}
  * @param {Array<Number>} gradesArr (Example: [0.76, 0.45])
  * @return {Number}
  */
-function calculateAveragePassingGrade(gradesArr) {}
+function calculateAveragePassingGrade(gradesArr) {
+  var totalAbove50 = gradesArr.filter((num) => num > 0.5);
+  return totalAbove50.reduce((a, b) => a + b) / totalAbove50.length;
+}
 
 /*
   DO NOT EDIT BELOW THIS LINE
