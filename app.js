@@ -20,7 +20,7 @@ function gradeOutOfHundred(gradesArr) {
   var gradesTimes100 = gradesArr.map((num) => num * 100);
   var floorOfGrades = gradesTimes100.map(Math.floor);
   var final = floorOfGrades.map((num) => num + "/100");
-  return final.join;
+  return final.join(" ");
 }
 
 /**
